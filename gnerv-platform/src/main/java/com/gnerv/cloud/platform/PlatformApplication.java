@@ -1,4 +1,4 @@
-package com.gnerv.cloud.file;
+package com.gnerv.cloud.platform;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date: 2018-05-15
  **/
 @SpringBootApplication
-public class FileApplication {
+public class PlatformApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FileApplication.class, args);
+		SpringApplication.run(PlatformApplication.class, args);
 	}
 }

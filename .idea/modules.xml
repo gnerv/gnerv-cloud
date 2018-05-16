@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/gnerv-cloud.iml" filepath="$PROJECT_DIR$/gnerv-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/gnerv-file/gnerv-file.iml" filepath="$PROJECT_DIR$/gnerv-file/gnerv-file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gnerv-platform/gnerv-platform.iml" filepath="$PROJECT_DIR$/gnerv-platform/gnerv-platform.iml" />
     </modules>
   </component>
 </project>

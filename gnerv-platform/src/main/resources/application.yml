@@ -1,0 +1,30 @@
+# server
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://59.110.173.46:3306/gnerv?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 50
+    initialSize: 6
+    maxWait: 300000
+    minIdle: 6
+    timeBetweenEvictionRunsMillis: 300000
+    minEvictableIdleTimeMillis: 600000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+mybatis:
+  mapper-locations: classpath*:mapping/**/*Mapper.xml
+
+
+
+

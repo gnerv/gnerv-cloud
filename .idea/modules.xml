@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/gnerv-cloud.iml" filepath="$PROJECT_DIR$/gnerv-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gnerv-file/gnerv-file.iml" filepath="$PROJECT_DIR$/gnerv-file/gnerv-file.iml" />
+    </modules>
+  </component>
+</project>

@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PlatformRoleApplicationTests {
@@ -23,7 +26,7 @@ public class PlatformRoleApplicationTests {
 
     @Test
     public void insertRoleTest() {
-	    for (int i =0; i <= 10; i++) {
+        for (int i =0; i <= 10; i++) {
             Role role = new Role();
             role.setRoleId("10001" + i);
             role.setpId("0");
@@ -33,6 +36,19 @@ public class PlatformRoleApplicationTests {
             boolean b = roleService.insertRole(role);
             System.out.println(b);
         }
+    }
+
+    @Test
+    public void insertRoleMenuTest() {
+	    String roleId = "100013";
+	    List<String> menuIds = new ArrayList<>();
+        menuIds.add("100011");
+        menuIds.add("100012");
+        menuIds.add("100013");
+        menuIds.add("100014");
+        menuIds.add("100015");
+        boolean b = roleService.insertRoleMenu(roleId, menuIds);
+        System.out.println(b);
     }
 
     @Test

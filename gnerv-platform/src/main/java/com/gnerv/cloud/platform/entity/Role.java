@@ -1,5 +1,7 @@
 package com.gnerv.cloud.platform.entity;
 
+import com.gnerv.cloud.platform.util.UUIDUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,7 +21,7 @@ public class Role implements Serializable {
     /**
      * 角色唯一32位UUID
      */
-    private String roleId;
+    private String roleId = UUIDUtil.getLowerUUID();
     /**
      * 上级角色ID 默认 "0"
      */
@@ -35,7 +37,7 @@ public class Role implements Serializable {
     /**
      * 角色状态 : 0启用 1停用 2锁定 3删除
      */
-    private String roleStatus;
+    private String roleStatus = "0";
     /**
      * 创建时间
      */

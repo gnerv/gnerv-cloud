@@ -1,7 +1,6 @@
 package com.gnerv.cloud.platform.mapper;
 
 import com.gnerv.cloud.platform.entity.Org;
-import com.gnerv.cloud.platform.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

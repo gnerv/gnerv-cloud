@@ -9,12 +9,11 @@ import com.gnerv.cloud.platform.entity.User;
  **/
 public interface UserService {
 
-    /**
-     *
-     * @param user
-     * @return
-     */
     boolean insertUser(User user);
+
+    boolean insertUserOrg(String userId, String orgId);
+
+    boolean insertUserRole(String userId, String roleId);
 
     boolean deleteUserByUserId(String userId);
 

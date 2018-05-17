@@ -2,6 +2,7 @@ package com.gnerv.cloud.platform.mapper;
 
 import com.gnerv.cloud.platform.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -14,12 +15,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
 
-    /**
-     * 插入一个用户
-     * @param user
-     * @return
-     */
     int insertUser(User user);
+
+    int insertUserOrg(@Param(value = "userId") String userId, @Param(value = "orgId") String orgId);
+
+    int insertUserRole(@Param(value = "userId") String userId, @Param(value = "roleId") String roleId);
 
     int deleteUserByUserId(String userId);
 

@@ -21,28 +21,19 @@ public class OrgServiceImpl implements OrgService {
     @Override
     public boolean insertOrg(Org org) {
         int i = orgMapper.insertOrg(org);
-        if (i == 1) {
-            return true;
-        }
-        return false;
+        return i == 1 ? true : false;
     }
 
     @Override
     public boolean deleteOrgByOrgId(String orgId) {
         int i = orgMapper.deleteOrgByOrgId(orgId);
-        if (i == 1) {
-            return true;
-        }
-        return false;
+        return i == 1 ? true : false;
     }
 
     @Override
     public boolean updateOrgByOrgId(Org org) {
         int i = orgMapper.updateOrgByOrgId(org);
-        if (i == 1) {
-            return true;
-        }
-        return false;
+        return i == 1 ? true : false;
     }
 
     @Override

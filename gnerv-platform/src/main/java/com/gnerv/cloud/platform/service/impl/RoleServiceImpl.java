@@ -6,6 +6,8 @@ import com.gnerv.cloud.platform.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @description: 角色服务 实现类
  * @author: Gnerv LiGen
@@ -20,28 +22,25 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public boolean insertRole(Role role) {
         int i = roleMapper.insertRole(role);
-        if (i == 1) {
-            return true;
-        }
-        return false;
+        return i == 1 ? true : false;
+    }
+
+    @Override
+    public boolean insertRoleMenu(String roleId, List<String> menuIds) {
+        int i = roleMapper.insertRoleMenu(roleId, menuIds);
+        return i == menuIds.size() ? true : false;
     }
 
     @Override
     public boolean deleteRoleByRoleId(String roleId) {
         int i = roleMapper.deleteRoleByRoleId(roleId);
-        if (i == 1) {
-            return true;
-        }
-        return false;
+        return i == 1 ? true : false;
     }
 
     @Override
     public boolean updateRoleByRoleId(Role role) {
         int i = roleMapper.updateRoleByRoleId(role);
-        if (i == 1) {
-            return true;
-        }
-        return false;
+        return i == 1 ? true : false;
     }
 
     @Override

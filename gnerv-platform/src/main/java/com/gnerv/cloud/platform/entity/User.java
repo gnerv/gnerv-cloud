@@ -1,7 +1,11 @@
 package com.gnerv.cloud.platform.entity;
 
+import com.gnerv.cloud.platform.util.UUIDUtil;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @description: 平台用户 实体类
@@ -19,7 +23,7 @@ public class User implements Serializable {
     /**
      * 用户唯一32位UUID
      */
-    private String userId;
+    private String userId = UUIDUtil.getLowerUUID();
     /**
      * 登陆账号 唯一
      */
@@ -35,7 +39,7 @@ public class User implements Serializable {
     /**
      * 用户状态 : 0启用 1停用 2锁定 3删除
      */
-    private String userStatus;
+    private String userStatus = "0";
     /**
      * 创建时间
      */
@@ -45,6 +49,15 @@ public class User implements Serializable {
      */
     private Date gmtModified;
 
+    /**
+     * 用户所属组织机构
+     */
+    private List<Org> orgs = new ArrayList<>();
+
+    /**
+     * 用户角色
+     */
+    private List<Role> roles = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -110,17 +123,35 @@ public class User implements Serializable {
         this.gmtModified = gmtModified;
     }
 
+    public List<Org> getOrgs() {
+        return orgs;
+    }
+
+    public void setOrgs(List<Org> orgs) {
+        this.orgs = orgs;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
-        return "PlatformUser{" +
-                ", id=" + id +
-                ", userId=" + userId +
-                ", account=" + account +
-                ", password=" + password +
-                ", userName=" + userName +
-                ", userStatus=" + userStatus +
+        return "User{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userStatus='" + userStatus + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                "}";
+                ", orgs=" + orgs +
+                ", roles=" + roles +
+                '}';
     }
 }

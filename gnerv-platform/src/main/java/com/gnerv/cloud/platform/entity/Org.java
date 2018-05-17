@@ -1,5 +1,7 @@
 package com.gnerv.cloud.platform.entity;
 
+import com.gnerv.cloud.platform.util.UUIDUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,7 +21,7 @@ public class Org implements Serializable {
     /**
      * 组织机构唯一32位UUID
      */
-    private String orgId;
+    private String orgId = UUIDUtil.getLowerUUID();
     /**
      * 上级组织机构ID 默认 "0"
      */
@@ -39,7 +41,7 @@ public class Org implements Serializable {
     /**
      * 组织机构状态 : 0启用 1停用 2锁定 3删除
      */
-    private String orgStatus;
+    private String orgStatus = "0";
     /**
      * 排序号 默认1000
      */

@@ -34,6 +34,15 @@
         )
     </insert>
 
+    <insert id="insertRoleMenu" parameterType="java.util.List">
+        INSERT INTO platform_role_menu (
+            role_id, menu_id
+        ) VALUES
+        <foreach collection="menuIds" item="menuId" separator=",">
+            (#{roleId}, #{menuId})
+        </foreach>
+    </insert>
+
     <delete id="deleteRoleByRoleId">
         DELETE FROM platform_role WHERE role_id = #{roleId}
     </delete>

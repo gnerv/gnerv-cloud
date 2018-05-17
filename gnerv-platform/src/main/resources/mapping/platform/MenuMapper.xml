@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gnerv.cloud.platform.mapper.MenuMapper">
+
+    <!-- Menu实体映射 -->
+    <resultMap id="base_menu" type="com.gnerv.cloud.platform.entity.Menu">
+        <result property="id" column="id"/>
+        <result property="menuId" column="menu_id"/>
+        <result property="pId" column="p_id"/>
+        <result property="menuName" column="menu_name"/>
+        <result property="menuType" column="menu_type"/>
+        <result property="menuUrl" column="menu_url"/>
+        <result property="menuPermission" column="menu_permission"/>
+        <result property="menuIcon" column="menu_icon"/>
+        <result property="menuStatus" column="menu_status"/>
+        <result property="menuSort" column="menu_sort"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+    <sql id="all_columns">
+        id, menu_id, p_id, menu_name, menu_type, menu_url,
+        menu_permission, menu_icon, menu_status, menu_sort, gmt_create, gmt_modified
+    </sql>
+
+    <insert id="insertMenu">
+        INSERT INTO platform_menu (
+            <if test="menuId != null">menu_id,</if>
+            <if test="pId != null">p_id,</if>
+            <if test="menuName != null">menu_name,</if>
+            <if test="menuType != null">menu_type,</if>
+            <if test="menuUrl != null">menu_url,</if>
+            <if test="menuPermission != null">menu_permission,</if>
+            <if test="menuIcon != null">menu_icon,</if>
+            <if test="menuStatus != null">menu_status,</if>
+            <if test="menuSort != null">menu_sort</if>
+        ) VALUES (
+            <if test="menuId != null">#{menuId},</if>
+            <if test="pId != null">#{pId},</if>
+            <if test="menuName != null">#{menuName},</if>
+            <if test="menuType != null">#{menuType},</if>
+            <if test="menuUrl != null">#{menuUrl},</if>
+            <if test="menuPermission != null">#{menuPermission},</if>
+            <if test="menuIcon != null">#{menuIcon},</if>
+            <if test="menuStatus != null">#{menuStatus},</if>
+            <if test="menuSort != null">#{menuSort}</if>
+        )
+    </insert>
+
+    <delete id="deleteMenuByMenuId">
+        DELETE FROM platform_menu WHERE menu_id = #{menuId}
+    </delete>
+
+    <update id="updateMenuByMenuId">
+        UPDATE platform_menu
+        SET
+            <if test="menuId != null">menu_id = #{menuId},</if>
+            <if test="pId != null">p_id = #{pId},</if>
+            <if test="menuName != null">menu_name = #{menuName},</if>
+            <if test="menuType != null">menu_type = #{menuType},</if>
+            <if test="menuUrl != null">menu_url = #{menuUrl},</if>
+            <if test="menuPermission != null">menu_permission = #{menuPermission},</if>
+            <if test="menuIcon != null">menu_icon = #{menuIcon},</if>
+            <if test="menuStatus != null">menu_status = #{menuStatus},</if>
+            <if test="menuSort != null">menu_sort = #{menuSort}</if>
+        WHERE menu_id = #{menuId}
+    </update>
+
+    <select id="selectMenuByMenuId" resultMap="base_menu">
+        SELECT <include refid="all_columns"></include> FROM platform_menu WHERE menu_id = #{menuId}
+    </select>
+
+    <select id="selectAllMenu" resultMap="base_menu">
+        SELECT <include refid="all_columns"></include> FROM platform_menu
+    </select>
+</mapper>

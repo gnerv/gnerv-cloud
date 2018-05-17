@@ -38,6 +38,26 @@
         )
     </insert>
 
+    <insert id="insertUserOrg">
+        INSERT INTO platform_user_org (
+            <if test="userId != null">user_id,</if>
+            <if test="orgId != null">org_id</if>
+        ) VALUES (
+            <if test="userId != null">#{userId},</if>
+            <if test="orgId != null">#{orgId}</if>
+        )
+    </insert>
+
+    <insert id="insertUserRole">
+        INSERT INTO platform_user_role (
+            <if test="userId != null">user_id,</if>
+            <if test="roleId != null">role_id</if>
+        ) VALUES (
+            <if test="userId != null">#{userId},</if>
+            <if test="roleId != null">#{roleId}</if>
+        )
+    </insert>
+
     <delete id="deleteUserByUserId">
         DELETE FROM platform_user WHERE user_id = #{userId}
     </delete>

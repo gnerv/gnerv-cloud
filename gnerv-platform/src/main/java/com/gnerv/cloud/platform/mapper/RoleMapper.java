@@ -2,6 +2,9 @@ package com.gnerv.cloud.platform.mapper;
 
 import com.gnerv.cloud.platform.entity.Role;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,6 +18,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface RoleMapper {
 
     int insertRole(Role role);
+
+    int insertRoleMenu(@Param(value = "roleId") String roleId, @Param(value = "menuIds") List<String> menuIds);
 
     int deleteRoleByRoleId(String roleId);
 

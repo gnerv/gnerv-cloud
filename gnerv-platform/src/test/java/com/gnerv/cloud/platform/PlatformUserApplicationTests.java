@@ -6,6 +6,7 @@ import com.gnerv.cloud.platform.entity.User;
 import com.gnerv.cloud.platform.service.OrgService;
 import com.gnerv.cloud.platform.service.RoleService;
 import com.gnerv.cloud.platform.service.UserService;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +92,17 @@ public class PlatformUserApplicationTests {
         user.setUserStatus("0");
         boolean b = userService.updateUserByUserId(user);
         System.out.println(b);
+    }
+    @Test
+    public void updateAllUserPasswordTest() {
+        List<User> users = userService.selectAllUser();
+        for (User user : users) {
+            String password = user.getPassword();
+            password = new Sha256Hash(password).toHex();
+            user.setPassword(password);
+            boolean b = userService.updateUserByUserId(user);
+            System.out.println(b);
+        }
     }
 
     @Test

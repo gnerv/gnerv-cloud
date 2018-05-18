@@ -76,4 +76,12 @@
         SELECT <include refid="select_columns"></include> FROM platform_user WHERE user_id = #{userId}
     </select>
 
+    <select id="selectAllUser" resultMap="base_user">
+        SELECT <include refid="all_columns"></include> FROM platform_user
+    </select>
+
+    <select id="selectUserByAccount" resultMap="base_user">
+        SELECT <include refid="all_columns"></include> FROM platform_user WHERE account = #{account}
+    </select>
+
 </mapper>

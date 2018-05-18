@@ -4,6 +4,8 @@ import com.gnerv.cloud.platform.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * <p>
  * 平台用户表 Mapper 接口
@@ -26,4 +28,8 @@ public interface UserMapper {
     int updateUserByUserId(User user);
 
     User selectUserByUserId(String userId);
+
+    User selectUserByAccount(String account);
+
+    List<User> selectAllUser();
 }

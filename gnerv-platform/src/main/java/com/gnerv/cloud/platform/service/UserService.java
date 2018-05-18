@@ -2,6 +2,8 @@ package com.gnerv.cloud.platform.service;
 
 import com.gnerv.cloud.platform.entity.User;
 
+import java.util.List;
+
 /**
  * @description: 用户服务 接口类
  * @author: Gnerv LiGen
@@ -20,4 +22,8 @@ public interface UserService {
     boolean updateUserByUserId(User user);
 
     User selectUserByUserId(String userId);
+
+    User selectUserByAccount(String account);
+
+    List<User> selectAllUser();
 }

@@ -1,6 +1,9 @@
 package com.gnerv.cloud.platform.service;
 
+import com.gnerv.cloud.platform.entity.Menu;
+import com.gnerv.cloud.platform.entity.Role;
 import com.gnerv.cloud.platform.entity.User;
+import com.gnerv.cloud.platform.util.Tree;
 
 import java.util.List;
 
@@ -26,4 +29,8 @@ public interface UserService {
     User selectUserByAccount(String account);
 
     List<User> selectAllUser();
+
+    List<Role> selectRoleByUserId(String userId);
+
+    List<Tree<Menu>> selectMenuTreeByUserId(String userId);
 }

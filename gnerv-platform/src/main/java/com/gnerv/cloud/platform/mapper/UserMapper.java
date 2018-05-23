@@ -1,5 +1,6 @@
 package com.gnerv.cloud.platform.mapper;
 
+import com.gnerv.cloud.platform.entity.Role;
 import com.gnerv.cloud.platform.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -32,4 +33,8 @@ public interface UserMapper {
     User selectUserByAccount(String account);
 
     List<User> selectAllUser();
+
+    List<String> selectRoleByUserId();
+
+    List<String> selectMenuByUserId(String userId);
 }

@@ -3,6 +3,7 @@ package com.gnerv.cloud.platform.service.impl;
 import com.gnerv.cloud.platform.entity.Menu;
 import com.gnerv.cloud.platform.mapper.MenuMapper;
 import com.gnerv.cloud.platform.service.MenuService;
+import com.gnerv.cloud.platform.util.BuildMenuTree;
 import com.gnerv.cloud.platform.util.BuildTree;
 import com.gnerv.cloud.platform.util.Tree;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,21 +51,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public List<Tree<Menu>> selectAllMenu() {
-        List<Tree<Menu>> trees = new ArrayList<>();
         List<Menu> menus = menuMapper.selectAllMenu();
-        for (Menu menu : menus) {
-            Tree<Menu> tree = new Tree<>();
-            tree.setId(menu.getMenuId().toString());
-            tree.setParentId(menu.getpId());
-            tree.setText(menu.getMenuName());
-            Map<String, Object> attributes = new HashMap<>(32);
-            attributes.put("menuUrl", menu.getMenuUrl());
-            attributes.put("menuPermission", menu.getMenuPermission());
-            tree.setAttributes(attributes);
-            trees.add(tree);
-        }
-        // 默认顶级菜单为０，根据数据库实际情况调整
-        List<Tree<Menu>> list = BuildTree.buildList(trees, "0");
-        return list;
+        return BuildMenuTree.getMenuTree(menus, "0");
     }
 }

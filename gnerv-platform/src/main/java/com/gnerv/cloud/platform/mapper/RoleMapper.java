@@ -26,4 +26,8 @@ public interface RoleMapper {
     int updateRoleByRoleId(Role role);
 
     Role selectRoleByRoleId(String roleId);
+
+    List<Role> selectAllRole();
+
+    List<String> selectMenuByRoleId(String roleId);
 }

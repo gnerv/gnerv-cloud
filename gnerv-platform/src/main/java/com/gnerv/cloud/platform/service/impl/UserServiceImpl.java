@@ -1,13 +1,18 @@
 package com.gnerv.cloud.platform.service.impl;
 
+import com.gnerv.cloud.platform.entity.Menu;
 import com.gnerv.cloud.platform.entity.Org;
+import com.gnerv.cloud.platform.entity.Role;
 import com.gnerv.cloud.platform.entity.User;
+import com.gnerv.cloud.platform.mapper.RoleMapper;
 import com.gnerv.cloud.platform.mapper.UserMapper;
 import com.gnerv.cloud.platform.service.OrgService;
 import com.gnerv.cloud.platform.service.UserService;
+import com.gnerv.cloud.platform.util.Tree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +28,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     OrgService orgService;
+
+    @Autowired
+    RoleMapper roleMapper;
 
     @Override
     public boolean insertUser(User user) {
@@ -75,4 +83,24 @@ public class UserServiceImpl implements UserService {
         List<User> users = userMapper.selectAllUser();
         return users;
     }
+
+    @Override
+    public List<Role> selectRoleByUserId(String userId) {
+        List<String> roleIds = userMapper.selectRoleByUserId();
+        List<Role> roles = new ArrayList<>();
+        for (String roleId : roleIds) {
+            Role role = roleMapper.selectRoleByRoleId(roleId);
+            roles.add(role);
+        }
+        return roles;
+    }
+
+    @Override
+    public List<Tree<Menu>> selectMenuTreeByUserId(String userId) {
+        List<String> menuIds = userMapper.selectMenuByUserId(userId);
+
+        return null;
+    }
+
+
 }

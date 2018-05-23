@@ -27,6 +27,10 @@ public class Menu implements Serializable {
      */
     private String pId = "0";
     /**
+     * 菜单所属业务
+     */
+    private String menuBusiness = "0";
+    /**
      * 菜单名称
      */
     private String menuName;
@@ -85,6 +89,14 @@ public class Menu implements Serializable {
 
     public void setpId(String pId) {
         this.pId = pId;
+    }
+
+    public String getMenuBusiness() {
+        return menuBusiness;
+    }
+
+    public void setMenuBusiness(String menuBusiness) {
+        this.menuBusiness = menuBusiness;
     }
 
     public String getMenuName() {
@@ -165,6 +177,7 @@ public class Menu implements Serializable {
                 "id=" + id +
                 ", menuId='" + menuId + '\'' +
                 ", pId='" + pId + '\'' +
+                ", menuBusiness='" + menuBusiness + '\'' +
                 ", menuName='" + menuName + '\'' +
                 ", menuType='" + menuType + '\'' +
                 ", menuUrl='" + menuUrl + '\'' +

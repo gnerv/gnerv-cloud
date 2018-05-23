@@ -61,4 +61,12 @@
         SELECT <include refid="all_columns"></include> FROM platform_role WHERE role_id = #{roleId}
     </select>
 
+    <select id="selectAllRole" resultMap="base_role">
+        SELECT <include refid="all_columns"></include> FROM platform_role
+    </select>
+
+    <select id="selectMenuByRoleId" resultType="java.util.List">
+        SELECT menu_id FROM platform_role_menu WHERE role_id = #{roleId}
+    </select>
+
 </mapper>

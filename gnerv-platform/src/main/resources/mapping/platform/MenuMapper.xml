@@ -7,6 +7,7 @@
         <result property="id" column="id"/>
         <result property="menuId" column="menu_id"/>
         <result property="pId" column="p_id"/>
+        <result property="menuBusiness" column="menu_business"/>
         <result property="menuName" column="menu_name"/>
         <result property="menuType" column="menu_type"/>
         <result property="menuUrl" column="menu_url"/>
@@ -19,7 +20,7 @@
     </resultMap>
 
     <sql id="all_columns">
-        id, menu_id, p_id, menu_name, menu_type, menu_url,
+        id, menu_id, p_id, menu_business, menu_name, menu_type, menu_url,
         menu_permission, menu_icon, menu_status, menu_sort, gmt_create, gmt_modified
     </sql>
 
@@ -27,6 +28,7 @@
         INSERT INTO platform_menu (
             <if test="menuId != null">menu_id,</if>
             <if test="pId != null">p_id,</if>
+            <if test="menuBusiness != null">menu_business,</if>
             <if test="menuName != null">menu_name,</if>
             <if test="menuType != null">menu_type,</if>
             <if test="menuUrl != null">menu_url,</if>
@@ -37,6 +39,7 @@
         ) VALUES (
             <if test="menuId != null">#{menuId},</if>
             <if test="pId != null">#{pId},</if>
+            <if test="menuBusiness != null">#{menuBusiness},</if>
             <if test="menuName != null">#{menuName},</if>
             <if test="menuType != null">#{menuType},</if>
             <if test="menuUrl != null">#{menuUrl},</if>
@@ -56,6 +59,7 @@
         SET
             <if test="menuId != null">menu_id = #{menuId},</if>
             <if test="pId != null">p_id = #{pId},</if>
+            <if test="menuBusiness != null">menu_business = #{menuBusiness},</if>
             <if test="menuName != null">menu_name = #{menuName},</if>
             <if test="menuType != null">menu_type = #{menuType},</if>
             <if test="menuUrl != null">menu_url = #{menuUrl},</if>

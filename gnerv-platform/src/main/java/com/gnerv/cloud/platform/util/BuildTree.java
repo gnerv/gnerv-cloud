@@ -1,7 +1,5 @@
 package com.gnerv.cloud.platform.util;
 
-import com.gnerv.cloud.platform.entity.Menu;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
